@@ -6,12 +6,14 @@ import './App.css'
 
 import { Navbar, Pie, Sidebar, Stacked } from './components';
 import { Area, Bar, Calendar, ColorMapping, ColorPicker, Customers, Ecommerce, Editor, Employees, Financial, Kanban, Line, Orders, Pyramid } from './pages';
-
+import { useStateContext } from './contexts/ContextProvider';
 
 
 
 const App = () => {
-  const activeMenu = true;
+  // hook:-
+  const {activeMenu} = useStateContext();
+  // const activeMenu = true;
   return (
     <div>
       <BrowserRouter>
@@ -39,7 +41,7 @@ const App = () => {
           <div className= {
             `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'mid:ml-72' : 'flex-2'}`}>
 
-              <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+              <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full h-10">
                 <Navbar/>
               </div>
               <Routes>
